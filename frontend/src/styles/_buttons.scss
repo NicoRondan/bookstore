@@ -1,0 +1,99 @@
+.cart-button {
+  background: #ffffff;
+  border: 1px solid #ed395d;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease-in-out;
+}
+
+.cart-button:hover {
+  background: #ed395d;
+  color: white;
+  transform: scale(1.1);
+}
+
+.cart-button svg {
+  color: #ed395d;
+  transition: color 0.3s ease;
+}
+
+.cart-button:hover svg {
+  color: white;
+}
+
+.buy-button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #dc143c;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease-in-out;
+}
+
+.buy-button:hover {
+  background: #b01030;
+  transform: scale(1.05);
+}
+
+.favorite-button {
+  background: #ffffff;
+  border: 1px solid #ed395d;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease-in-out;
+
+  svg {
+    color: #ed395d;
+    transition: color 0.3s ease;
+  }
+
+  &:hover {
+    background: #ed395d;
+    transform: scale(1.1);
+
+    svg {
+      color: white;
+    }
+  }
+
+  &.liked {
+    background: #ed395d;
+    animation: popEffect 0.3s ease-out;
+
+    svg {
+      color: white;
+    }
+  }
+}
+
+@keyframes popEffect {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
+
+

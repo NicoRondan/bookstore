@@ -1,0 +1,68 @@
+.favorites-container {
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  .favorites-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .favorite-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .favorite-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .favorite-info {
+    flex: 1;
+    margin-left: 15px;
+  }
+  
+  .favorite-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #dc143c;
+  }
+  
+  .remove-button {
+    background: #dc143c;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .remove-button:hover {
+    background: #b01030;
+  }
+  
+  .back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #dc143c;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .back-link:hover {
+    text-decoration: underline;
+  }

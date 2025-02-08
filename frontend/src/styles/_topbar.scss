@@ -1,0 +1,177 @@
+.topbar {
+    width: 100%;
+    background: #dc143c;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+  
+  .topbar.hidden {
+    transform: translateY(-100%);
+  }
+  
+  .topbar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+  }
+  
+  .logo img {
+    height: 55px;
+    width: 55px;
+  }
+  
+  .search-bar {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    max-width: 400px;
+  }
+  
+  .search-bar input {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 8px;
+    font-size: 14px;
+  }
+  
+  .search-icon {
+    color: #888;
+    font-size: 16px;
+  }
+  
+  .topbar-icons {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+  
+  .topbar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .topbar-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+  }
+  
+  .topbar-icon {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  /* Contenedor del usuario en la topbar */
+.user-dropdown {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  /* Botón de usuario (con imagen o icono) */
+  .user-button {
+    background: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    gap: 1px;
+    color: white;
+    padding: 5px 1px 8px;
+    transition: background 0.2s ease-in-out;
+  }
+  
+  .user-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+  }
+  
+  /* Avatar del usuario */
+  .user-avatar {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+  }
+  
+  /* Icono de usuario cuando no hay imagen */
+  .user-icon {
+    font-size: 20px;
+    color: white;
+    margin: 3.2px;
+  }
+  
+  /* Nombre del usuario debajo del icono */
+  .username {
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    margin-top: 0;
+  }
+  
+  /* Estilo del dropdown */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    width: 150px;
+    overflow: hidden;
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none; 
+  }
+  
+  /* Mostrar el dropdown cuando está abierto */
+  .user-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  
+  /* Opciones del dropdown */
+  .dropdown-item {
+    display: block;
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.2s ease;
+    width: 100%;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+  .dropdown-item:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+  
