@@ -1,4 +1,6 @@
+// cartController.js
 const db = require("../config/database");
+const logger = require("../utils/logger");
 
 // Obtener carrito del user
 exports.getCart = (req, res, next) => {
@@ -6,23 +8,23 @@ exports.getCart = (req, res, next) => {
 
   db.get("SELECT * FROM cart WHERE user_id = ?", [user_id], (err, cart) => {
     if (err) {
-      console.log("Error al obtener carrito: ", err);
+      logger.error("Error al obtener carrito: ", err);
       return next(err);
     }
 
     if (!cart) {
-      console.log("Carrito no encontrado, creando uno nuevo...");
+      logger.info("Carrito no encontrado, creando uno nuevo...");
 
       db.run(
         "INSERT INTO cart (user_id) VALUES (?)",
         [user_id],
         function (err) {
           if (err) {
-            console.log("Error al crear el carrito:", err);
+            logger.error("Error al crear el carrito:", err);
             return next(err);
           }
 
-          console.log("✅ Carrito creado con éxito:", this.lastID);
+          logger.info("✅ Carrito creado con éxito:", this.lastID);
           return res.json({ id: this.lastID, items: [] });
         }
       );
@@ -32,7 +34,7 @@ exports.getCart = (req, res, next) => {
         [cart.id],
         (err, items) => {
           if (err) {
-            console.error("Error al obtener items del carrito: ", err);
+            logger.error("Error al obtener items del carrito: ", err);
             return next(err);
           }
           res.json({ id: cart.id, items });
@@ -65,66 +67,60 @@ exports.addToCart = (req, res, next) => {
 
     // Encontrar el carrito del user en la DB
     db.get("SELECT * FROM cart WHERE user_id = ?", [user_id], (err, cart) => {
-      if (err) return enxt(err);
+      if (err) return next(err);
 
       if (!cart) {
-        console.log("Carrito no encontrado, creando uno nuevo...");
+        logger.info("Carrito no encontrado, creando uno nuevo...");
         db.run(
           "INSERT INTO cart (user_id) VALUES (?)",
           [user_id],
           function (err) {
             if (err) return next(err);
-
-            const cart_id = this.lastID;
-
             db.run(
-              "INSERT INTO cart_items (cart_id, book_id, quantity) VALUES (?, ?, ?)",
-              [cart_id, book_id, quantity],
+              "INSERT INTO cart (user_id) VALUES (?)",
+              [user_id],
               function (err) {
                 if (err) return next(err);
-                res.json({ message: "Libro agregado al carrito ", cart_id });
+                addItemToCart(this.lastID, book_id, quantity, res, next);
               }
             );
           }
         );
       } else {
-        db.get(
-          "SELECT * FROM cart_items WHERE cart_id = ? AND book_id = ?",
-          [cart.id, book_id],
-          (err, item) => {
-            if (err) return next(err);
-
-            if (item) {
-              if (book.stock < item.quantity + quantity) {
-                console.log("⚠️ Stock insuficiente para el carrito.");
-                return res
-                  .status(400)
-                  .json({ error: "Stock insuficiente para este libro " });
-              }
-
-              db.run(
-                "UPDATE cart_item SET quantity = quantity + ? WHERE id = ?",
-                [quantity, item.id],
-                function (err) {
-                  if (err) return next(err);
-                  res.json({ message: "Cantidad actualizada al carrito." });
-                }
-              );
-            } else {
-              db.run(
-                "INSERT INTO cart_items (cart_id, book_id, quantity) VALUES (?, ?, ?)",
-                [cart.id, book_id, quantity],
-                function (err) {
-                  if (err) return next(err);
-                  res.json({ message: "Libro agregado al carrito" });
-                }
-              );
-            }
-          }
-        );
+        addItemToCart(cart.id, book_id, quantity, res, next);
       }
     });
   });
+};
+
+const addItemToCart = (cart_id, book_id, quantity, res, next) => {
+  db.get(
+    "SELECT * FROM cart_items WHERE cart_id = ? AND book_id = ?",
+    [cart_id, book_id],
+    (err, item) => {
+      if (err) return next(err);
+
+      if (item) {
+        db.run(
+          "UPDATE cart_items SET quantity = quantity + ? WHERE id = ?",
+          [quantity, item.id],
+          function (err) {
+            if (err) return next(err);
+            res.json({ message: "Cantidad actualizada en el carrito." });
+          }
+        );
+      } else {
+        db.run(
+          "INSERT INTO cart_items (cart_id, book_id, quantity) VALUES (?, ?, ?)",
+          [cart_id, book_id, quantity],
+          function (err) {
+            if (err) return next(err);
+            res.json({ message: "Libro agregado al carrito." });
+          }
+        );
+      }
+    }
+  );
 };
 
 // Eliminar un libro del carrito
@@ -132,13 +128,13 @@ exports.removeFromCart = (req, res, next) => {
   const user_id = req.user.id;
   const { book_id } = req.body;
 
-  console.log(`Eliminando libro ${book_id} del carrito del usuario ${user_id}`);
-
   if (!book_id) {
     return res
       .status(400)
       .json({ error: "Faltan datos para eliminar del carrito." });
   }
+
+  logger.info(`Eliminando libro ${book_id} del carrito del usuario ${user_id}`);
 
   db.get("SELECT * FROM cart WHERE user_id = ?", [user_id], (err, cart) => {
     if (err) return next(err);
@@ -164,7 +160,7 @@ exports.removeFromCart = (req, res, next) => {
 exports.clearCart = (req, res, next) => {
   const user_id = req.user.id;
 
-  console.log(`Vaciando carrito del usuario ${user_id}`);
+  logger.info(`Vaciando carrito del usuario ${user_id}`);
 
   db.get("SELECT * FROM cart WHERE user_id = ?", [user_id], (err, cart) => {
     if (err) return next(err);

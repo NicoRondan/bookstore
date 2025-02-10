@@ -14,6 +14,8 @@ require("./config/passport");
 
 const app = express();
 
+app.set("trust proxy", 1); // Confía en el primer proxy
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET || "secret_super_secure", // Clave para firmar la cookie de sesión

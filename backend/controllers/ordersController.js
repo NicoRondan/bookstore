@@ -1,101 +1,157 @@
 const db = require("../config/database");
+const logger = require("../utils/logger");
 
-// Crear una nueva orden
+// Crear una orden desde el carrito o por compra directa
 exports.createOrder = (req, res, next) => {
-  console.log("🛒 Recibiendo solicitud para crear orden...");
-  console.log("📦 Datos recibidos:", req.body);
+  const user_id = req.user.id;
+  const { book_id, quantity } = req.body;
 
-  const { user_id, items, total_price } = req.body;
+  logger.info("🛒 Iniciando creación de orden...");
 
-  if (!user_id || !items || !total_price) {
-    console.log("❌ Error: Datos incompletos para la orden.");
-    return res.status(400).json({ error: "Faltan datos para crear la orden." });
+  // Compra directa (sin carrito)
+  if (book_id && quantity) {
+    logger.info(`📌 Compra directa detectada para libro ID ${book_id}.`);
+
+    db.get(
+      "SELECT price, stock FROM books WHERE id = ?",
+      [book_id],
+      (err, book) => {
+        if (err) return next(err);
+        if (!book)
+          return res.status(404).json({ error: "Libro no encontrado." });
+
+        if (book.stock < quantity) {
+          return res.status(400).json({
+            error: `Stock insuficiente para el libro ID ${book_id}.`,
+          });
+        }
+
+        const total_price = book.price * quantity;
+
+        db.run(
+          "INSERT INTO orders (user_id, total_price, status) VALUES (?, ?, 'pending')",
+          [user_id, total_price],
+          function (err) {
+            if (err) return next(err);
+            const order_id = this.lastID;
+            logger.info(`🆕 Orden creada con ID: ${order_id}`);
+
+            db.run(
+              "INSERT INTO order_items (order_id, book_id, quantity, price) VALUES (?, ?, ?, ?)",
+              [order_id, book_id, quantity, book.price],
+              function (err) {
+                if (err) return next(err);
+
+                db.run(
+                  "UPDATE books SET stock = stock - ? WHERE id = ?",
+                  [quantity, book_id],
+                  function (err) {
+                    if (err) return next(err);
+                    logger.info(
+                      `✅ Stock actualizado para libro ID ${book_id}.`
+                    );
+                  }
+                );
+
+                res.json({ message: "Orden creada con éxito", order_id });
+              }
+            );
+          }
+        );
+      }
+    );
+
+    return;
   }
 
-  console.log("✅ Datos validados. Verificando stock...");
+  // Compra desde el carrito
+  logger.info("🛒 Intentando crear orden desde el carrito...");
 
-  const checkStockPromises = items.map((item) => {
-    return new Promise((resolve, reject) => {
-      db.get(
-        "SELECT stock FROM books WHERE id = ?",
-        [item.book_id],
-        (err, book) => {
-          if (err) return reject(err);
-          if (!book)
-            return reject(new Error(`Libro ID ${item.book_id} no encontrado`));
-          if (book.stock < item.quantity)
-            return reject(
-              new Error(`Stock insuficiente para el libro ID ${item.book_id}`)
-            );
-          resolve();
+  db.get("SELECT * FROM cart WHERE user_id = ?", [user_id], (err, cart) => {
+    if (err) return next(err);
+    if (!cart) {
+      return res.status(400).json({ error: "El carrito está vacío." });
+    }
+
+    db.all(
+      `SELECT ci.book_id, ci.quantity, b.price, b.stock 
+       FROM cart_items ci 
+       JOIN books b ON ci.book_id = b.id 
+       WHERE ci.cart_id = ?`,
+      [cart.id],
+      (err, cartItems) => {
+        if (err) return next(err);
+        if (cartItems.length === 0) {
+          return res.status(400).json({ error: "El carrito está vacío." });
         }
-      );
-    });
-  });
 
-  Promise.all(checkStockPromises)
-    .then(() => {
-      console.log("✅ Stock validado. Creando orden en la base de datos...");
-
-      db.run(
-        "INSERT INTO orders (user_id, total_price, status) VALUES (?, ?, 'pending')",
-        [user_id, total_price],
-        function (err) {
-          if (err) {
-            console.error("❌ Error al insertar la orden:", err);
-            return next(err);
+        for (const item of cartItems) {
+          if (item.quantity > item.stock) {
+            return res.status(400).json({
+              error: `Stock insuficiente para el libro ID ${item.book_id}.`,
+            });
           }
-
-          const order_id = this.lastID;
-          console.log(`🆕 Orden creada con ID: ${order_id}`);
-
-          const insertItems = items.map((item, index) => {
-            console.log(`🔹 Procesando ítem #${index + 1}:`, item);
-
-            return new Promise((resolve, reject) => {
-              db.run(
-                "INSERT INTO order_items (order_id, book_id, quantity, price) VALUES (?, ?, ?, ?)",
-                [order_id, item.book_id, item.quantity, item.price],
-                function (err) {
-                  if (err) return reject(err);
-
-                  db.run(
-                    "UPDATE books SET stock = stock - ? WHERE id = ?",
-                    [item.quantity, item.book_id],
-                    function (err) {
-                      if (err) return reject(err);
-                      console.log(
-                        `✅ Stock actualizado para libro ID ${item.book_id}`
-                      );
-                      resolve();
-                    }
-                  );
-                }
-              );
-            });
-          });
-
-          Promise.all(insertItems)
-            .then(() => {
-              console.log(
-                "✅ Todos los ítems se insertaron correctamente y stock actualizado."
-              );
-              res.json({ message: "Orden creada con éxito", order_id });
-            })
-            .catch((err) => {
-              console.error(
-                "❌ Error al insertar ítems o actualizar stock:",
-                err
-              );
-              next(err);
-            });
         }
-      );
-    })
-    .catch((err) => {
-      console.error("❌ Error de stock antes de crear la orden:", err);
-      res.status(400).json({ error: err.message });
-    });
+
+        const total_price = cartItems.reduce(
+          (sum, item) => sum + item.price * item.quantity,
+          0
+        );
+
+        db.run(
+          "INSERT INTO orders (user_id, total_price, status) VALUES (?, ?, 'pending')",
+          [user_id, total_price],
+          function (err) {
+            if (err) return next(err);
+            const order_id = this.lastID;
+            logger.info(`🆕 Orden creada con ID: ${order_id}`);
+
+            const insertItemsPromises = cartItems.map((item) => {
+              return new Promise((resolve, reject) => {
+                db.run(
+                  "INSERT INTO order_items (order_id, book_id, quantity, price) VALUES (?, ?, ?, ?)",
+                  [order_id, item.book_id, item.quantity, item.price],
+                  function (err) {
+                    if (err) return reject(err);
+
+                    db.run(
+                      "UPDATE books SET stock = stock - ? WHERE id = ?",
+                      [item.quantity, item.book_id],
+                      function (err) {
+                        if (err) return reject(err);
+                        resolve();
+                      }
+                    );
+                  }
+                );
+              });
+            });
+
+            Promise.all(insertItemsPromises)
+              .then(() => {
+                db.run(
+                  "DELETE FROM cart_items WHERE cart_id = ?",
+                  [cart.id],
+                  function (err) {
+                    if (err) return next(err);
+                    logger.info("🛒 Carrito vaciado tras crear la orden.");
+                  }
+                );
+
+                res.json({ message: "Orden creada con éxito", order_id });
+              })
+              .catch((err) => {
+                logger.error(
+                  "❌ Error al insertar ítems o actualizar stock:",
+                  err
+                );
+                next(err);
+              });
+          }
+        );
+      }
+    );
+  });
 };
 
 // Obtener una orden por ID

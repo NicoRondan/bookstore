@@ -1,4 +1,5 @@
 const express = require("express");
+const { authenticateToken } = require("../middleware/auth");
 const {
   addLike,
   getLikedBooks,
@@ -8,8 +9,9 @@ const {
 
 const router = express.Router();
 
-router.post("/", addLike);
-router.get("/:user_id", getLikedBooks);
-router.get("/:user_id/:book_id", checkLikeStatus);
-router.delete("/", removeLike);
+router.post("/", authenticateToken, addLike);
+router.get("/", authenticateToken, getLikedBooks);
+router.get("/:book_id", authenticateToken, checkLikeStatus);
+router.delete("/", authenticateToken, removeLike);
+
 module.exports = router;

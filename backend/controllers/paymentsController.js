@@ -126,8 +126,42 @@ exports.paymentWebhook = async (req, res, next) => {
       if (status === "approved") {
         db.run("UPDATE orders SET status = 'paid' WHERE id = ?", [order_id]);
         console.log(`✅ Pedido ${order_id} pagado con éxito.`);
-      } else {
-        console.log(`⚠️ Pedido ${order_id} no fue aprobado. Estado: ${status}`);
+      } else if (status === "cancelled" || status === "rejected") {
+        console.log(
+          `⚠️ Pedido ${order_id} cancelado/rechazado. Restaurando stock...`
+        );
+
+        db.all(
+          "SELECT book_id, quantity FROM order_items WHERE order_id = ?",
+          [order_id],
+          (err, items) => {
+            if (err) return next(err);
+
+            const restoreStockPromises = items.map((item) => {
+              return new Promise((resolve, reject) => {
+                db.run(
+                  "UPDATE books SET stock = stock + ? WHERE id = ?",
+                  [item.quantity, item.book_id],
+                  function (err) {
+                    if (err) reject(err);
+                    else resolve();
+                  }
+                );
+              });
+            });
+
+            Promise.all(restoreStockPromises)
+              .then(() => {
+                console.log(
+                  `✅ Stock restaurado correctamente para orden ${order_id}.`
+                );
+                db.run("UPDATE orders SET status = 'cancelled' WHERE id = ?", [
+                  order_id,
+                ]);
+              })
+              .catch(next);
+          }
+        );
       }
 
       res.sendStatus(200);

@@ -2,17 +2,19 @@
 const express = require("express");
 const {
   getBooks,
-  seedBooks,
+  getAllBooks,
   deleteBooks,
-  //addBook, updateBook
+  addBook,
+  //updateBook
 } = require("../controllers/booksController");
-//const { uploadBooks } = require("../config/cloudinary");
+const { uploadBooks } = require("../config/cloudinary");
 
 const router = express.Router();
 
-//router.post("/", uploadBooks.single("book_image"), addBook);
+router.post("/", uploadBooks.single("book_image"), addBook);
 //router.put("/:id", uploadBooks.single("book_image"), updateBook);
 router.get("/", getBooks);
+router.get("/all", getAllBooks);
 router.delete("/", deleteBooks);
 
 module.exports = router;

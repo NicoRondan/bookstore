@@ -1,0 +1,1 @@
+{"level":"error","message":"❌ Error no controlado: SQLITE_CONSTRAINT: NOT NULL constraint failed: book_authors.book_id","timestamp":"2025-02-10T03:23:44.552Z"}

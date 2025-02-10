@@ -1,2 +1,206 @@
 [2025-02-08T05:17:01.084Z] INFO: Servidor corriendo en http://localhost:4000
 [2025-02-08T05:19:32.940Z] INFO: Servidor corriendo en http://localhost:4000
+[2025-02-08T16:16:12.647Z] INFO: Servidor corriendo en http://localhost:4000
+[2025-02-08T17:50:05.671Z] INFO: Servidor corriendo en http://localhost:4000
+[2025-02-08T17:50:23.623Z] INFO: 🔍 Recibiendo datos de registro:
+[2025-02-08T17:50:23.623Z] INFO: [object Object]
+[2025-02-08T17:50:23.625Z] INFO: 🔒 Hashing password...
+[2025-02-08T17:50:23.706Z] INFO: ✅ Usuario creado correctamente con ID:
+[2025-02-08T18:01:10.328Z] INFO: Servidor corriendo en http://localhost:4000 
+[2025-02-08T18:07:36.752Z] INFO: Servidor corriendo en http://localhost:4000 
+[2025-02-08T18:07:58.238Z] INFO: 🔍 Recibiendo datos de registro: 
+[2025-02-08T18:07:58.239Z] INFO: [object Object] 
+[2025-02-08T18:07:58.241Z] INFO: ❌ Error: Email ya registrado 
+[2025-02-08T18:07:59.380Z] INFO: 🔍 Recibiendo datos para actualizar usuario: 
+[2025-02-08T18:07:59.380Z] INFO: ➡️ user_id: 
+[2025-02-08T18:07:59.380Z] INFO: ➡️ username: 
+[2025-02-08T18:07:59.381Z] INFO: ➡️ phone: 
+[2025-02-08T18:07:59.381Z] INFO: ➡️ address: 
+[2025-02-08T18:07:59.381Z] INFO: ➡️ profile_image (antes de subir): 
+[2025-02-08T18:07:59.382Z] INFO: 📄 Ejecutando query de actualización en la base de datos... 
+[2025-02-08T18:07:59.393Z] INFO: ✅ Usuario actualizado en DB con éxito 
+[2025-02-08T18:45:43.639Z] INFO: 🔍 Recibiendo datos de registro: 
+[2025-02-08T18:45:43.643Z] INFO: [object Object] 
+[2025-02-08T18:45:43.651Z] INFO: 🔒 Hashing password... 
+[2025-02-08T18:45:43.742Z] INFO: ✅ Usuario creado correctamente con ID: 
+[2025-02-08T18:45:44.979Z] INFO: 🔍 Recibiendo datos para actualizar usuario: 
+[2025-02-08T18:45:44.979Z] INFO: ➡️ user_id: 
+[2025-02-08T18:45:44.979Z] INFO: ➡️ username: 
+[2025-02-08T18:45:44.979Z] INFO: ➡️ phone: 
+[2025-02-08T18:45:44.979Z] INFO: ➡️ address: 
+[2025-02-08T18:45:44.980Z] INFO: ➡️ profile_image (antes de subir): 
+[2025-02-08T18:45:44.981Z] INFO: ❌ Error: El nombre de usuario ya está en uso 
+[2025-02-08T18:46:39.602Z] INFO: 🔍 Recibiendo datos de registro: 
+[2025-02-08T18:46:39.602Z] INFO: [object Object] 
+[2025-02-08T18:46:39.604Z] INFO: 🔒 Hashing password... 
+[2025-02-08T18:46:39.687Z] INFO: ✅ Usuario creado correctamente con ID: 
+[2025-02-08T18:46:41.312Z] INFO: 🔍 Recibiendo datos para actualizar usuario: 
+[2025-02-08T18:46:41.313Z] INFO: ➡️ user_id: 
+[2025-02-08T18:46:41.313Z] INFO: ➡️ username: 
+[2025-02-08T18:46:41.313Z] INFO: ➡️ phone: 
+[2025-02-08T18:46:41.313Z] INFO: ➡️ address: 
+[2025-02-08T18:46:41.313Z] INFO: ➡️ profile_image (antes de subir): 
+[2025-02-08T18:46:41.314Z] INFO: ❌ Error: El nombre de usuario ya está en uso 
+[2025-02-08T18:50:35.340Z] INFO: 🔍 Recibiendo datos de registro: 
+[2025-02-08T18:50:35.340Z] INFO: [object Object] 
+[2025-02-08T18:50:35.342Z] INFO: 🔒 Hashing password... 
+[2025-02-08T18:50:35.424Z] INFO: ✅ Usuario creado correctamente con ID: 
+[2025-02-08T18:50:36.614Z] INFO: 🔍 Recibiendo datos para actualizar usuario: 
+[2025-02-08T18:50:36.615Z] INFO: ➡️ user_id: 
+[2025-02-08T18:50:36.615Z] INFO: ➡️ username: 
+[2025-02-08T18:50:36.615Z] INFO: ➡️ phone: 
+[2025-02-08T18:50:36.615Z] INFO: ➡️ address: 
+[2025-02-08T18:50:36.615Z] INFO: ➡️ profile_image (antes de subir): 
+[2025-02-08T18:50:36.616Z] INFO: 📄 Ejecutando query de actualización en la base de datos... 
+[2025-02-08T18:50:36.628Z] INFO: ✅ Usuario actualizado en DB con éxito 
+[2025-02-08T18:53:43.727Z] INFO: 🔍 Recibiendo datos de registro: 
+[2025-02-08T18:53:43.727Z] INFO: [object Object] 
+[2025-02-08T18:53:43.728Z] INFO: 🔒 Hashing password... 
+[2025-02-08T18:53:43.811Z] INFO: ✅ Usuario creado correctamente con ID: 
+[2025-02-08T18:53:45.023Z] INFO: 🔍 Recibiendo datos para actualizar usuario: 
+[2025-02-08T18:53:45.023Z] INFO: ➡️ user_id: 
+[2025-02-08T18:53:45.023Z] INFO: ➡️ username: 
+[2025-02-08T18:53:45.023Z] INFO: ➡️ phone: 
+[2025-02-08T18:53:45.023Z] INFO: ➡️ address: 
+[2025-02-08T18:53:45.024Z] INFO: ➡️ profile_image (antes de subir): 
+[2025-02-08T18:53:45.024Z] INFO: 📄 Ejecutando query de actualización en la base de datos... 
+[2025-02-08T18:53:45.036Z] INFO: ✅ Usuario actualizado en DB con éxito 
+[2025-02-08T18:56:26.653Z] INFO: 🔍 Recibiendo datos de registro: 
+[2025-02-08T18:56:26.653Z] INFO: [object Object] 
+[2025-02-08T18:56:26.654Z] INFO: 🔒 Hashing password... 
+[2025-02-08T18:56:26.737Z] INFO: ✅ Usuario creado correctamente con ID: 
+[2025-02-08T18:56:27.961Z] INFO: 🔍 Recibiendo datos para actualizar usuario: 
+[2025-02-08T18:56:27.961Z] INFO: ➡️ user_id: 
+[2025-02-08T18:56:27.961Z] INFO: ➡️ username: 
+[2025-02-08T18:56:27.961Z] INFO: ➡️ phone: 
+[2025-02-08T18:56:27.961Z] INFO: ➡️ address: 
+[2025-02-08T18:56:27.961Z] INFO: ➡️ profile_image (antes de subir): 
+[2025-02-08T18:56:27.962Z] INFO: 📄 Ejecutando query de actualización en la base de datos... 
+[2025-02-08T18:56:27.975Z] INFO: ✅ Usuario actualizado en DB con éxito 
+[2025-02-08T18:57:54.037Z] INFO: Servidor corriendo en http://localhost:4000 
+[2025-02-08T18:58:14.733Z] INFO: 🔍 Recibiendo datos de registro: 
+[2025-02-08T18:58:14.734Z] INFO: [object Object] 
+[2025-02-08T18:58:14.736Z] INFO: 🔒 Hashing password... 
+[2025-02-08T18:58:14.825Z] INFO: ✅ Usuario creado correctamente con ID: 
+[2025-02-08T18:58:16.009Z] INFO: 🔍 Recibiendo datos para actualizar usuario: 
+[2025-02-08T18:58:16.010Z] INFO: ➡️ user_id: 
+[2025-02-08T18:58:16.010Z] INFO: ➡️ username: 
+[2025-02-08T18:58:16.010Z] INFO: ➡️ phone: 
+[2025-02-08T18:58:16.010Z] INFO: ➡️ address: 
+[2025-02-08T18:58:16.011Z] INFO: ➡️ profile_image (antes de subir): 
+[2025-02-08T18:58:16.013Z] INFO: 📄 Ejecutando query de actualización en la base de datos... 
+[2025-02-08T18:58:16.025Z] INFO: ✅ Usuario actualizado en DB con éxito 
+[2025-02-08T19:02:04.170Z] INFO: Servidor corriendo en http://localhost:4000 
+[2025-02-08T19:02:11.826Z] INFO: 🔍 Recibiendo datos de registro: 
+[2025-02-08T19:02:11.827Z] INFO: [object Object] 
+[2025-02-08T19:02:11.829Z] INFO: 🔒 Hashing password... 
+[2025-02-08T19:02:11.913Z] INFO: ✅ Usuario creado correctamente con ID: 
+[2025-02-08T19:02:13.622Z] INFO: 🔍 Recibiendo datos para actualizar usuario: 
+[2025-02-08T19:02:13.623Z] INFO: ➡️  {"user_id":"11","username":"updated_user_63927","phone":"123456789","address":"Calle Falsa 123"}
+[2025-02-08T19:02:13.624Z] INFO: 📄 Ejecutando query de actualización en la base de datos... 
+[2025-02-08T19:02:13.637Z] INFO: ✅ Usuario actualizado en DB con éxito 
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-08T19:07:42.267Z"}
+{"email":"test49672@example.com","level":"info","message":"🔍 Recibiendo datos de registro: ","password":"Test1234!","timestamp":"2025-02-08T19:07:47.684Z","username":"user_62293"}
+{"level":"info","message":"🔒 Hashing password...","timestamp":"2025-02-08T19:07:47.686Z"}
+{"level":"info","message":"✅ Usuario creado correctamente con ID:","timestamp":"2025-02-08T19:07:47.770Z"}
+{"level":"info","message":"🔍 Recibiendo datos para actualizar usuario:","timestamp":"2025-02-08T19:07:48.953Z"}
+{"address":"Calle Falsa 123","level":"info","message":"➡️ ","phone":"123456789","timestamp":"2025-02-08T19:07:48.954Z","user_id":"12","username":"updated_user_20698"}
+{"level":"info","message":"📄 Ejecutando query de actualización en la base de datos...","timestamp":"2025-02-08T19:07:48.955Z"}
+{"level":"info","message":"✅ Usuario actualizado en DB con éxito","timestamp":"2025-02-08T19:07:48.966Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-08T19:08:18.827Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-08T20:04:05.599Z"}
+{"email":"test58280@example.com","level":"info","message":"🔍 Recibiendo datos de registro: ","password":"Test1234!","timestamp":"2025-02-08T20:04:11.867Z","username":"user_96584"}
+{"level":"info","message":"🔒 Hashing password...","timestamp":"2025-02-08T20:04:11.870Z"}
+{"level":"info","message":"✅ Usuario creado correctamente con ID:","timestamp":"2025-02-08T20:04:11.996Z"}
+{"level":"info","message":"🔍 Recibiendo datos para actualizar usuario:","timestamp":"2025-02-08T20:04:13.419Z"}
+{"address":"Calle Falsa 123","level":"info","message":"➡️ ","phone":"123456789","timestamp":"2025-02-08T20:04:13.420Z","user_id":"13","username":"updated_user_92257"}
+{"level":"info","message":"📄 Ejecutando query de actualización en la base de datos...","timestamp":"2025-02-08T20:04:13.421Z"}
+{"level":"info","message":"✅ Usuario actualizado en DB con éxito","timestamp":"2025-02-08T20:04:13.435Z"}
+{"level":"info","message":"👍 Agregando like: user 13 -> book 3","timestamp":"2025-02-08T20:04:13.834Z"}
+{"level":"info","message":"✅ Like agregado con éxito: ID 2","timestamp":"2025-02-08T20:04:13.850Z"}
+{"level":"info","message":"🔍 Verificando like: user 13 -> book 3","timestamp":"2025-02-08T20:04:15.042Z"}
+{"level":"info","message":"✅ Estado del like: LIKED","timestamp":"2025-02-08T20:04:15.043Z"}
+{"level":"info","message":"❌ Eliminando like: user 13 -> book 3","timestamp":"2025-02-08T20:04:15.414Z"}
+{"level":"info","message":"✅ Like eliminado con éxito.","timestamp":"2025-02-08T20:04:15.424Z"}
+{"email":"test89979@example.com","level":"info","message":"🔍 Recibiendo datos de registro: ","password":"Test1234!","timestamp":"2025-02-08T20:10:15.737Z","username":"user_70142"}
+{"level":"info","message":"🔒 Hashing password...","timestamp":"2025-02-08T20:10:15.739Z"}
+{"level":"info","message":"✅ Usuario creado correctamente con ID:","timestamp":"2025-02-08T20:10:15.822Z"}
+{"level":"info","message":"🔍 Recibiendo datos para actualizar usuario:","timestamp":"2025-02-08T20:10:17.086Z"}
+{"address":"Calle Falsa 123","level":"info","message":"➡️ ","phone":"123456789","timestamp":"2025-02-08T20:10:17.086Z","user_id":"14","username":"updated_user_12124"}
+{"level":"info","message":"📄 Ejecutando query de actualización en la base de datos...","timestamp":"2025-02-08T20:10:17.087Z"}
+{"level":"info","message":"✅ Usuario actualizado en DB con éxito","timestamp":"2025-02-08T20:10:17.098Z"}
+{"level":"info","message":"👍 Agregando like: user 14 -> book 3","timestamp":"2025-02-08T20:10:17.430Z"}
+{"level":"info","message":"✅ Like agregado con éxito: ID 3","timestamp":"2025-02-08T20:10:17.440Z"}
+{"email":"test66721@example.com","level":"info","message":"🔍 Recibiendo datos de registro: ","password":"Test1234!","timestamp":"2025-02-08T20:11:36.384Z","username":"user_38230"}
+{"level":"info","message":"🔒 Hashing password...","timestamp":"2025-02-08T20:11:36.385Z"}
+{"level":"info","message":"✅ Usuario creado correctamente con ID:","timestamp":"2025-02-08T20:11:36.467Z"}
+{"level":"info","message":"🔍 Recibiendo datos para actualizar usuario:","timestamp":"2025-02-08T20:11:38.124Z"}
+{"address":"Calle Falsa 123","level":"info","message":"➡️ ","phone":"123456789","timestamp":"2025-02-08T20:11:38.124Z","user_id":"15","username":"updated_user_54201"}
+{"level":"info","message":"📄 Ejecutando query de actualización en la base de datos...","timestamp":"2025-02-08T20:11:38.125Z"}
+{"level":"info","message":"✅ Usuario actualizado en DB con éxito","timestamp":"2025-02-08T20:11:38.136Z"}
+{"level":"info","message":"👍 Agregando like: user 15 -> book 3","timestamp":"2025-02-08T20:11:38.482Z"}
+{"level":"info","message":"✅ Like agregado con éxito: ID 4","timestamp":"2025-02-08T20:11:38.497Z"}
+{"level":"info","message":"📖 Obteniendo libros con like del usuario 15...","timestamp":"2025-02-08T20:11:38.814Z"}
+{"0":{"author":"Gabriel García Márquez","description":"Descripción del libro 'Cien años de soledad'.","genre":"Ficción","id":3,"image_url":"https://picsum.photos/200/300?random=3","isbn":"978-926779427","pages":150,"price":18,"publication_year":2023,"publisher":"Alfaguara","stock":4,"title":"Cien años de soledad"},"level":"info","message":"✅ Libros obtenidos (1):","timestamp":"2025-02-08T20:11:38.815Z"}
+{"level":"info","message":"🔍 Verificando like: user 15 -> book 3","timestamp":"2025-02-08T20:11:39.158Z"}
+{"level":"info","message":"✅ Estado del like: LIKED","timestamp":"2025-02-08T20:11:39.159Z"}
+{"level":"info","message":"❌ Eliminando like: user 15 -> book 3","timestamp":"2025-02-08T20:11:39.997Z"}
+{"level":"info","message":"✅ Like eliminado con éxito.","timestamp":"2025-02-08T20:11:40.008Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-08T21:05:33.530Z"}
+{"email":"test23301@example.com","level":"info","message":"🔍 Recibiendo datos de registro: ","password":"Test1234!","timestamp":"2025-02-08T21:06:22.162Z","username":"user_21835"}
+{"level":"info","message":"🔒 Hashing password...","timestamp":"2025-02-08T21:06:22.168Z"}
+{"level":"info","message":"✅ Usuario creado correctamente con ID:","timestamp":"2025-02-08T21:06:22.253Z"}
+{"level":"info","message":"🔍 Recibiendo datos para actualizar usuario:","timestamp":"2025-02-08T21:06:23.527Z"}
+{"address":"Calle Falsa 123","level":"info","message":"➡️ ","phone":"123456789","timestamp":"2025-02-08T21:06:23.527Z","user_id":"16","username":"updated_user_72366"}
+{"level":"info","message":"📄 Ejecutando query de actualización en la base de datos...","timestamp":"2025-02-08T21:06:23.529Z"}
+{"level":"info","message":"✅ Usuario actualizado en DB con éxito","timestamp":"2025-02-08T21:06:23.543Z"}
+{"level":"info","message":"👍 Agregando like: user 16 -> book 3","timestamp":"2025-02-08T21:06:23.889Z"}
+{"level":"info","message":"✅ Like agregado con éxito: ID 5","timestamp":"2025-02-08T21:06:23.902Z"}
+{"level":"info","message":"📖 Obteniendo libros con like del usuario 16...","timestamp":"2025-02-08T21:06:24.256Z"}
+{"0":{"author":"Gabriel García Márquez","description":"Descripción del libro 'Cien años de soledad'.","genre":"Ficción","id":3,"image_url":"https://picsum.photos/200/300?random=3","isbn":"978-926779427","pages":150,"price":18,"publication_year":2023,"publisher":"Alfaguara","stock":4,"title":"Cien años de soledad"},"level":"info","message":"✅ Libros obtenidos (1):","timestamp":"2025-02-08T21:06:24.257Z"}
+{"level":"info","message":"🔍 Verificando like: user 16 -> book 3","timestamp":"2025-02-08T21:06:24.614Z"}
+{"level":"info","message":"✅ Estado del like: LIKED","timestamp":"2025-02-08T21:06:24.615Z"}
+{"level":"info","message":"❌ Eliminando like: user 16 -> book 3","timestamp":"2025-02-08T21:06:24.958Z"}
+{"level":"info","message":"✅ Like eliminado con éxito.","timestamp":"2025-02-08T21:06:24.970Z"}
+{"level":"info","message":"Carrito no encontrado, creando uno nuevo...","timestamp":"2025-02-08T21:06:25.318Z"}
+{"level":"info","message":"✅ Carrito creado con éxito:","timestamp":"2025-02-08T21:06:25.334Z"}
+{"level":"info","message":"Eliminando libro 3 del carrito del usuario 16","timestamp":"2025-02-08T21:06:26.409Z"}
+{"level":"info","message":"Vaciando carrito del usuario 16","timestamp":"2025-02-08T21:06:26.798Z"}
+{"level":"info","message":"Eliminando libro 3 del carrito del usuario 16","timestamp":"2025-02-08T21:08:35.717Z"}
+{"level":"info","message":"Vaciando carrito del usuario 16","timestamp":"2025-02-08T21:08:36.078Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-08T21:47:51.583Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-08T22:00:29.285Z"}
+{"level":"info","message":"🛒 Iniciando creación de orden...","timestamp":"2025-02-08T22:00:38.906Z"}
+{"level":"info","message":"🛒 Intentando crear orden desde el carrito...","timestamp":"2025-02-08T22:00:38.906Z"}
+{"level":"info","message":"🆕 Orden creada con ID: 6","timestamp":"2025-02-08T22:00:38.920Z"}
+{"level":"info","message":"🛒 Carrito vaciado tras crear la orden.","timestamp":"2025-02-08T22:00:38.949Z"}
+{"level":"info","message":"Vaciando carrito del usuario 16","timestamp":"2025-02-08T22:01:56.875Z"}
+{"level":"info","message":"🛒 Iniciando creación de orden...","timestamp":"2025-02-08T22:02:54.708Z"}
+{"level":"info","message":"📌 Compra directa detectada para libro ID 3.","timestamp":"2025-02-08T22:02:54.709Z"}
+{"level":"info","message":"🛒 Iniciando creación de orden...","timestamp":"2025-02-08T22:03:49.656Z"}
+{"level":"info","message":"📌 Compra directa detectada para libro ID 4.","timestamp":"2025-02-08T22:03:49.656Z"}
+{"level":"info","message":"🆕 Orden creada con ID: 7","timestamp":"2025-02-08T22:03:49.670Z"}
+{"level":"info","message":"✅ Stock actualizado para libro ID 4.","timestamp":"2025-02-08T22:03:49.693Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-09T23:52:10.040Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T00:39:06.492Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T00:48:24.850Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T02:34:42.029Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T02:41:16.984Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T02:43:28.503Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T02:47:11.120Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T02:55:51.533Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T02:56:57.106Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T03:13:32.296Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T03:23:40.529Z"}
+{"level":"error","message":"❌ Error no controlado: SQLITE_CONSTRAINT: NOT NULL constraint failed: book_authors.book_id","timestamp":"2025-02-10T03:23:44.552Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T03:29:57.798Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T03:32:57.509Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T03:44:49.005Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T03:48:22.245Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T03:51:15.281Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T03:58:58.575Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T04:42:07.333Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T05:07:13.533Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T05:11:05.646Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T05:21:19.805Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T05:22:53.051Z"}

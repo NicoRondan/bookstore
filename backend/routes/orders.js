@@ -1,3 +1,4 @@
+// routes/orders
 const express = require("express");
 const {
   createOrder,
@@ -16,6 +17,11 @@ router.get("/:id", authenticateToken, getOrderById);
 router.get("/user/:user_id", authenticateToken, getOrdersByUser);
 router.put("/cancel/:id", authenticateToken, cancelOrder);
 router.get("/", authenticateToken, authenticateAdmin, getAllOrders);
-router.put("/:id/status", authenticateToken, authenticateAdmin, updateOrderStatus);
+router.put(
+  "/:id/status",
+  authenticateToken,
+  authenticateAdmin,
+  updateOrderStatus
+);
 
 module.exports = router;

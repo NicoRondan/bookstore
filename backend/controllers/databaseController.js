@@ -15,7 +15,12 @@ exports.resetDatabase = (req, res, next) => {
     DROP TABLE IF EXISTS cart;
     DROP TABLE IF EXISTS likes;
     DROP TABLE IF EXISTS users;
+    DROP TABLE IF EXISTS book_authors;
+    DROP TABLE IF EXISTS book_categories;
+    DROP TABLE IF EXISTS authors;
+    DROP TABLE IF EXISTS categories;
     DROP TABLE IF EXISTS books;
+    DROP TABLE IF EXISTS publishers;
   `;
 
   db.exec(dropTables, (err) => {
@@ -29,16 +34,45 @@ exports.resetDatabase = (req, res, next) => {
       CREATE TABLE IF NOT EXISTS books (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT NOT NULL,
-        author TEXT NOT NULL,
-        genre TEXT NOT NULL,
         isbn TEXT UNIQUE NOT NULL,
-        publisher TEXT,
+        publisher_id INTEGER,
         publication_year INTEGER,
         stock INTEGER DEFAULT 0,
         description TEXT,
         pages INTEGER,
         price REAL NOT NULL,
-        image_url TEXT
+        image_url TEXT,
+        rating REAL DEFAULT NULL,
+        FOREIGN KEY (publisher_id) REFERENCES publishers(id) ON DELETE SET NULL
+      );
+
+      CREATE TABLE IF NOT EXISTS publishers (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT UNIQUE NOT NULL
+      );
+
+      CREATE TABLE IF NOT EXISTS authors (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT UNIQUE NOT NULL
+      );
+
+      CREATE TABLE IF NOT EXISTS book_authors (
+        book_id INTEGER NOT NULL,
+        author_id INTEGER NOT NULL,
+        FOREIGN KEY (book_id) REFERENCES books(id),
+        FOREIGN KEY (author_id) REFERENCES authors(id)
+      );
+
+      CREATE TABLE IF NOT EXISTS categories (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT UNIQUE NOT NULL
+      );
+
+      CREATE TABLE IF NOT EXISTS book_categories (
+        book_id INTEGER NOT NULL,
+        category_id INTEGER NOT NULL,
+        FOREIGN KEY (book_id) REFERENCES books(id),
+        FOREIGN KEY (category_id) REFERENCES categories(id)
       );
 
       CREATE TABLE IF NOT EXISTS users (
@@ -130,33 +164,156 @@ exports.resetDatabase = (req, res, next) => {
 const seedData = async () => {
   console.log("🌱 Poblando base de datos...");
 
-  // Insertar libros desde books.json
   const booksData = fs.readFileSync(
     path.join(__dirname, "../books.json"),
     "utf8"
   );
-  const books = JSON.parse(booksData);
-  const bookQuery = `
-    INSERT INTO books (title, author, genre, isbn, publisher, publication_year, stock, description, pages, price, image_url) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-  `;
+  const data = JSON.parse(booksData);
 
-  books.forEach((book) => {
-    db.run(bookQuery, [
-      book.title,
-      book.author,
-      book.genre,
-      book.isbn,
-      book.publisher,
-      book.publication_year,
-      book.stock,
-      book.description,
-      book.pages,
-      book.price,
-      book.image_url,
-    ]);
-  });
-  console.log("📚 Libros insertados correctamente.");
+  console.log("📂 JSON Cargado Correctamente:", Object.keys(data));
+
+  // Insertar publishers y obtener sus IDs
+  const publisherMap = new Map();
+  await Promise.all(
+    [...new Set(data.books.map((b) => b.publisher))].map(async (publisher) => {
+      return new Promise((resolve, reject) => {
+        db.run(
+          `INSERT INTO publishers (name) VALUES (?) ON CONFLICT(name) DO NOTHING`,
+          [publisher],
+          function (err) {
+            if (err) return reject(err);
+            publisherMap.set(publisher, this.lastID);
+            resolve();
+          }
+        );
+      });
+    })
+  );
+
+  console.log("✅ Editoriales insertadas correctamente.");
+
+  // Insertar libros y mapear sus IDs
+  const bookMap = new Map();
+  await Promise.all(
+    data.books.map(async (book) => {
+      return new Promise((resolve, reject) => {
+        db.run(
+          `INSERT INTO books (title, isbn, publisher_id, publication_year, stock, description, pages, price, image_url) 
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id`,
+          [
+            book.title,
+            book.isbn,
+            publisherMap.get(book.publisher),
+            book.publication_year,
+            book.stock,
+            book.description,
+            book.pages,
+            book.price,
+            book.image_url,
+          ],
+          function (err) {
+            if (err) return reject(err);
+            bookMap.set(book.title, this.lastID);
+            resolve();
+          }
+        );
+      });
+    })
+  );
+
+  console.log("✅ Libros insertados correctamente.");
+
+  // Insertar authors y obtener sus IDs
+  const authorMap = new Map();
+  await Promise.all(
+    [...new Set(data.book_authors.map((ba) => ba.author))].map(
+      async (author) => {
+        return new Promise((resolve, reject) => {
+          db.run(
+            `INSERT INTO authors (name) VALUES (?) ON CONFLICT(name) DO NOTHING`,
+            [author],
+            function (err) {
+              if (err) return reject(err);
+              authorMap.set(author, this.lastID);
+              resolve();
+            }
+          );
+        });
+      }
+    )
+  );
+
+  console.log("✅ Autores insertados correctamente.");
+
+  // Insertar relaciones libro-autor
+  await Promise.all(
+    data.book_authors.map(async ({ book, author }) => {
+      return new Promise((resolve, reject) => {
+        const bookId = bookMap.get(book);
+        const authorId = authorMap.get(author);
+        if (!bookId || !authorId) {
+          console.error(`❌ Error asignando autor: ${book} -> ${author}`);
+          return resolve();
+        }
+        db.run(
+          `INSERT INTO book_authors (book_id, author_id) VALUES (?, ?)`,
+          [bookId, authorId],
+          (err) => {
+            if (err) return reject(err);
+            resolve();
+          }
+        );
+      });
+    })
+  );
+
+  console.log("✅ Relaciones libro-autor insertadas correctamente.");
+
+  // Insertar categories y obtener sus IDs
+  const categoryMap = new Map();
+  await Promise.all(
+    [...new Set(data.book_categories.map((bc) => bc.category))].map(
+      async (category) => {
+        return new Promise((resolve, reject) => {
+          db.run(
+            `INSERT INTO categories (name) VALUES (?) ON CONFLICT(name) DO NOTHING`,
+            [category],
+            function (err) {
+              if (err) return reject(err);
+              categoryMap.set(category, this.lastID);
+              resolve();
+            }
+          );
+        });
+      }
+    )
+  );
+
+  console.log("✅ Categorías insertadas correctamente.");
+
+  // Insertar relaciones libro-categoría
+  await Promise.all(
+    data.book_categories.map(async ({ book, category }) => {
+      return new Promise((resolve, reject) => {
+        const bookId = bookMap.get(book);
+        const categoryId = categoryMap.get(category);
+        if (!bookId || !categoryId) {
+          console.error(`❌ Error asignando categoría: ${book} -> ${category}`);
+          return resolve();
+        }
+        db.run(
+          `INSERT INTO book_categories (book_id, category_id) VALUES (?, ?)`,
+          [bookId, categoryId],
+          (err) => {
+            if (err) return reject(err);
+            resolve();
+          }
+        );
+      });
+    })
+  );
+
+  console.log("✅ Relaciones libro-categoría insertadas correctamente.");
 
   // Insertar usuarios
   const users = [
@@ -182,19 +339,8 @@ const seedData = async () => {
   users.forEach((user) => {
     db.run(userQuery, [user.username, user.email, user.password, user.role]);
   });
-  console.log("👤 Usuarios insertados correctamente.");
 
-  // Insertar órdenes
-  db.run(
-    "INSERT INTO orders (user_id, total_price, status) VALUES (1, 30.5, 'paid')"
-  );
-  console.log("🛒 Orden de prueba insertada.");
-
-  // Insertar reviews
-  db.run(
-    "INSERT INTO reviews (user_id, book_id, rating, comment) VALUES (2, 1, 5, 'Excelente libro!')"
-  );
-  console.log("⭐ Review de prueba insertada.");
+  console.log("✅ Usuarios insertados correctamente.");
 
   console.log("✅ Poblamiento de base de datos completado.");
 };
