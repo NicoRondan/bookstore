@@ -204,3 +204,107 @@
 {"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T05:11:05.646Z"}
 {"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T05:21:19.805Z"}
 {"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-10T05:22:53.051Z"}
+{"level":"error","message":"❌ Error no controlado: SQLITE_ERROR: no such column: normalized_name","timestamp":"2025-02-12T04:39:21.241Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-12T04:44:09.749Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"978-0141439570","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"10","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T04:44:51.361Z","title":"The Picture of Dorian Gray"}
+{"level":"error","message":"⚠️ Promesa rechazada sin manejar: TypeError: db.transaction is not a function","timestamp":"2025-02-12T04:44:51.362Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-12T04:49:00.423Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"978-0141439570","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"10","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T04:49:14.408Z","title":"The Picture of Dorian Gray"}
+{"level":"info","message":"🔍 Buscando o insertando editorial...","timestamp":"2025-02-12T04:49:14.417Z"}
+{"level":"info","message":"📚 Insertando libro en la base de datos...","timestamp":"2025-02-12T04:49:14.420Z"}
+{"level":"error","message":"❌ Error en la transacción, ejecutando rollback: dbTransaction is not defined","stack":"ReferenceError: dbTransaction is not defined\n    at exports.addBook (/project/workspace/backend/controllers/booksController.js:108:20)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2025-02-12T04:49:14.421Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-12T04:50:01.895Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"978-0141439570","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"10","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T04:50:05.006Z","title":"The Picture of Dorian Gray"}
+{"level":"info","message":"🔍 Buscando o insertando editorial...","timestamp":"2025-02-12T04:50:05.008Z"}
+{"level":"info","message":"📚 Insertando libro en la base de datos...","timestamp":"2025-02-12T04:50:05.011Z"}
+{"level":"info","message":"✅ Libro agregado con ID: undefined","timestamp":"2025-02-12T04:50:05.026Z"}
+{"level":"info","message":"✅ Autor asociado: Oscar Wilde (ID: undefined)","timestamp":"2025-02-12T04:50:05.027Z"}
+{"level":"info","message":"✅ Categoría asociada: Ficción (ID: undefined)","timestamp":"2025-02-12T04:50:05.028Z"}
+{"level":"info","message":"✅ Categoría asociada: Filosofía (ID: undefined)","timestamp":"2025-02-12T04:50:05.029Z"}
+{"level":"info","message":"✅ Transacción completada con éxito.","timestamp":"2025-02-12T04:50:05.029Z"}
+{"level":"error","message":"❌ Error no controlado: SQLITE_CONSTRAINT: UNIQUE constraint failed: books.isbn","timestamp":"2025-02-12T04:50:05.052Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-12T04:55:58.216Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"978-0141439570","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"10","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T04:56:18.095Z","title":"The Picture of Dorian Gray"}
+{"level":"warn","message":"⚠️ ISBN duplicado detectado: 978-0141439570","timestamp":"2025-02-12T04:56:18.103Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"979-0141439570","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"20","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T05:00:22.892Z","title":"The Picture of Dorian Gray"}
+{"level":"warn","message":"⚠️ ISBN duplicado detectado: 979-0141439570","timestamp":"2025-02-12T05:00:22.898Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-12T05:05:11.094Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"379-0141439570","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"20","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T05:12:03.349Z","title":"The Picture of Dorian Gray"}
+{"level":"warn","message":"⚠️ ISBN duplicado detectado: 379-0141439570","timestamp":"2025-02-12T05:12:03.352Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"999-0141439570","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"20","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T05:12:27.042Z","title":"The Picture of Dorian Gray"}
+{"level":"warn","message":"⚠️ ISBN duplicado detectado: 999-0141439570","timestamp":"2025-02-12T05:12:27.043Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"elISBN1231","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"20","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T05:13:28.990Z","title":"The Picture of Dorian Gray"}
+{"level":"warn","message":"⚠️ ISBN duplicado detectado: elISBN1231","timestamp":"2025-02-12T05:13:28.991Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-12T05:14:29.017Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"123548","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"20","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T05:14:44.148Z","title":"The Picture of Dorian Gray"}
+{"level":"warn","message":"⚠️ ISBN duplicado detectado: 123548","timestamp":"2025-02-12T05:14:44.158Z"}
+{"level":"error","message":"❌ Error no controlado: SQLITE_ERROR: cannot rollback - no transaction is active","timestamp":"2025-02-12T05:14:44.169Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-12T05:15:25.442Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"123548","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"20","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T05:15:29.773Z","title":"The Picture of Dorian Gray"}
+{"level":"warn","message":"⚠️ ISBN duplicado detectado: 123548","timestamp":"2025-02-12T05:15:29.776Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-12T05:32:55.875Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"not-existing-isbn","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"20","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T05:33:25.184Z","title":"The Picture of Dorian Gray"}
+{"level":"warn","message":"⚠️ ISBN duplicado detectado: not-existing-isbn [object Object]","timestamp":"2025-02-12T05:33:25.190Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-12T05:34:13.070Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"not-existing-isbn","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"20","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T05:34:20.922Z","title":"The Picture of Dorian Gray"}
+{"existingBook":{},"level":"warn","message":"⚠️ ISBN duplicado detectado: not-existing-isbn","timestamp":"2025-02-12T05:34:20.925Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-12T05:35:55.788Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"999-5632145","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"20","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T05:36:13.665Z","title":"The Picture of Dorian Gray"}
+{"level":"info","message":"🔍 Buscando o insertando editorial...","timestamp":"2025-02-12T05:36:13.668Z"}
+{"level":"info","message":"📚 Insertando libro en la base de datos...","timestamp":"2025-02-12T05:36:13.678Z"}
+{"level":"info","message":"✅ Libro agregado con ID: undefined","timestamp":"2025-02-12T05:36:14.121Z"}
+{"level":"info","message":"✅ Autor asociado: Oscar Wilde (ID: undefined)","timestamp":"2025-02-12T05:36:14.122Z"}
+{"level":"info","message":"✅ Categoría asociada: Ficción (ID: undefined)","timestamp":"2025-02-12T05:36:14.123Z"}
+{"level":"info","message":"✅ Categoría asociada: Filosofía (ID: undefined)","timestamp":"2025-02-12T05:36:14.123Z"}
+{"level":"info","message":"✅ Transacción completada con éxito.","timestamp":"2025-02-12T05:36:14.123Z"}
+{"level":"info","message":"📤 Subiendo imagen a Cloudinary...","timestamp":"2025-02-12T05:36:14.124Z"}
+{"level":"error","message":"⚠️ Imagen no pudo subirse, pero el libro sí se guardó.","timestamp":"2025-02-12T05:36:14.124Z"}
+{"level":"error","message":"❌ Error no controlado: SQLITE_CONSTRAINT: NOT NULL constraint failed: book_authors.book_id","timestamp":"2025-02-12T05:36:14.429Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-12T05:40:06.970Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"999-5632145","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"20","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T05:40:42.825Z","title":"The Picture of Dorian Gray"}
+{"level":"warn","message":"⚠️ ISBN duplicado detectado: 999-5632145","timestamp":"2025-02-12T05:40:42.989Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"969-5632145","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"20","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T05:40:58.975Z","title":"The Picture of Dorian Gray"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-12T05:45:59.074Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"969-5632145","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"20","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T05:46:25.109Z","title":"The Picture of Dorian Gray"}
+{"level":"info","message":"✅ Libro agregado con ID: 19","timestamp":"2025-02-12T05:46:25.137Z"}
+{"level":"info","message":"✅ Transacción completada con éxito.","timestamp":"2025-02-12T05:46:25.405Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-12T05:48:58.542Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"969-5632145","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"20","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T05:49:35.054Z","title":"The Picture of Dorian Gray"}
+{"level":"warn","message":"⚠️ ISBN duplicado detectado: 969-5632145","timestamp":"2025-02-12T05:49:35.068Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"889-5632145","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"20","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T05:49:50.919Z","title":"The Picture of Dorian Gray"}
+{"level":"info","message":"✅ Libro agregado con ID: 20","timestamp":"2025-02-12T05:49:50.940Z"}
+{"level":"info","message":"✅ Transacción completada con éxito.","timestamp":"2025-02-12T05:49:51.142Z"}
+{"level":"info","message":"📤 Subiendo imagen a Cloudinary...","timestamp":"2025-02-12T05:49:51.142Z"}
+{"level":"info","message":"✅ Imagen subida con éxito:","timestamp":"2025-02-12T05:49:52.154Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"889-5632145","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"20","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T05:53:20.894Z","title":"The Picture of Dorian Gray"}
+{"level":"info","message":"✅ Libro agregado con ID: 17","timestamp":"2025-02-12T05:53:20.910Z"}
+{"level":"info","message":"✅ Transacción completada con éxito.","timestamp":"2025-02-12T05:53:21.101Z"}
+{"level":"info","message":"📤 Subiendo imagen a Cloudinary...","timestamp":"2025-02-12T05:53:21.102Z"}
+{"level":"info","message":"✅ Imagen subida con éxito:","timestamp":"2025-02-12T05:53:22.157Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-12T06:10:55.232Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-12T06:15:52.899Z"}
+{"id":"17","level":"info","message":"📥 Recibiendo solicitud para actualizar un libro:","price":"40","stock":"26","timestamp":"2025-02-12T06:16:26.062Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-12T06:33:13.466Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-12T06:34:35.473Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"889-5632145","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"20","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T06:35:07.985Z","title":"The Picture of Dorian Gray"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-12T06:37:02.241Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"889-5632145","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"20","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T06:37:16.401Z","title":"The Picture of Dorian Gray"}
+{"level":"error","message":"❌ Error no controlado: SQLITE_ERROR: cannot rollback - no transaction is active","timestamp":"2025-02-12T06:37:16.458Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-12T06:45:47.530Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"889-5632145","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"20","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T06:45:57.997Z","title":"The Picture of Dorian Gray"}
+{"level":"info","message":"✅ Libro agregado con ID: 17","timestamp":"2025-02-12T06:45:58.014Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"889-5632145","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"20","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T06:49:28.670Z","title":"The Picture of Dorian Gray"}
+{"level":"info","message":"✅ Libro agregado con ID: 17","timestamp":"2025-02-12T06:49:28.682Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-12T06:54:17.538Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"889-5632145","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"20","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T06:54:45.081Z","title":"The Picture of Dorian Gray"}
+{"level":"info","message":"✅ Libro agregado con ID: 17","timestamp":"2025-02-12T06:54:45.098Z"}
+{"level":"info","message":"✅ Transacción completada con éxito.","timestamp":"2025-02-12T06:54:45.361Z"}
+{"level":"info","message":"📤 Subiendo imagen a Cloudinary...","timestamp":"2025-02-12T06:54:45.362Z"}
+{"level":"info","message":"✅ Imagen subida con éxito: https://res.cloudinary.com/dgt1rel7s/image/upload/v1739343285/book_images/fz8heu7opu0sa5yh9lm2.png","timestamp":"2025-02-12T06:54:46.192Z"}
+{"level":"info","message":"Servidor corriendo en http://localhost:4000","timestamp":"2025-02-12T07:00:27.403Z"}
+{"authors":"Oscar Wilde","categories":"Ficción, Filosofía","description":"Un joven que nunca envejece, pero su retrato sí.","isbn":"889-5632145","level":"info","message":"📥 Recibiendo solicitud para agregar un libro:","pages":"224","price":"20","publication_year":"1890","publisher":"Penguin Classics","stock":"25","timestamp":"2025-02-12T07:01:32.157Z","title":"The Picture of Dorian Gray"}
+{"level":"info","message":"✅ Libro agregado con ID: 18","timestamp":"2025-02-12T07:01:32.173Z"}
+{"level":"info","message":"✅ Transacción completada con éxito.","timestamp":"2025-02-12T07:01:32.389Z"}
+{"level":"info","message":"📤 Subiendo imagen a Cloudinary...","timestamp":"2025-02-12T07:01:32.390Z"}
+{"level":"info","message":"✅ Imagen subida con éxito: https://res.cloudinary.com/dgt1rel7s/image/upload/v1739343692/book_images/tb35ys7ryyjcnolcgser.png","timestamp":"2025-02-12T07:01:33.349Z"}
+{"level":"info","message":"📥 Recibiendo solicitud para actualizar un libro:","price":"40","stock":"26","timestamp":"2025-02-12T07:02:53.622Z"}

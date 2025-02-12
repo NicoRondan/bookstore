@@ -1,1 +1,10 @@
 {"level":"error","message":"❌ Error no controlado: SQLITE_CONSTRAINT: NOT NULL constraint failed: book_authors.book_id","timestamp":"2025-02-10T03:23:44.552Z"}
+{"level":"error","message":"❌ Error no controlado: SQLITE_ERROR: no such column: normalized_name","timestamp":"2025-02-12T04:39:21.241Z"}
+{"level":"error","message":"⚠️ Promesa rechazada sin manejar: TypeError: db.transaction is not a function","timestamp":"2025-02-12T04:44:51.362Z"}
+{"level":"error","message":"❌ Error en la transacción, ejecutando rollback: dbTransaction is not defined","stack":"ReferenceError: dbTransaction is not defined\n    at exports.addBook (/project/workspace/backend/controllers/booksController.js:108:20)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2025-02-12T04:49:14.421Z"}
+{"level":"error","message":"❌ Error no controlado: SQLITE_CONSTRAINT: UNIQUE constraint failed: books.isbn","timestamp":"2025-02-12T04:50:05.052Z"}
+{"level":"error","message":"❌ Error no controlado: SQLITE_ERROR: cannot rollback - no transaction is active","timestamp":"2025-02-12T05:14:44.169Z"}
+{"level":"error","message":"⚠️ Imagen no pudo subirse, pero el libro sí se guardó.","timestamp":"2025-02-12T05:36:14.124Z"}
+{"level":"error","message":"❌ Error no controlado: SQLITE_CONSTRAINT: NOT NULL constraint failed: book_authors.book_id","timestamp":"2025-02-12T05:36:14.429Z"}
+{"level":"error","message":"❌ Error no controlado: cloudinary is not defined","timestamp":"2025-02-12T05:46:25.406Z"}
+{"level":"error","message":"❌ Error no controlado: SQLITE_ERROR: cannot rollback - no transaction is active","timestamp":"2025-02-12T06:37:16.458Z"}
